@@ -1,8 +1,8 @@
-import React from "react";
-import { Navbar, Container } from "react-bootstrap";
+import React from 'react';
+import { Navbar, Container } from 'react-bootstrap';
 
 const style = {
-  backgroundColor: "lightblue",
+  backgroundColor: 'lightblue',
 };
 
 export default function Header({ title }) {
