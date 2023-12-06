@@ -10,7 +10,7 @@ export default function Header({ title }) {
   return (
     <Navbar style={style} data-bs-theme="light">
       <Container>
-        <Logo style={{ maxWidth: '20rem', maxHeight: '4rem' }} />
+        <Logo style={{ maxWidth: '20rem', maxHeight: '4rem' }} alt={title} />
       </Container>
     </Navbar>
   );
