@@ -3,5 +3,12 @@
   "eslint.validate": ["html", "javascript", "javascriptreach"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
+  },
+  "python .linting.pycodestyleEnabled": true,
+  "python.linting.pycodestyleArgs": ["--max-line-length=88"],
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
+  "python": {
+    "editor.formatOnSave": true
   }
 }
