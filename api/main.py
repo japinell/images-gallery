@@ -1,9 +1,13 @@
 """ Main application """
 import os
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import requests
 from dotenv import load_dotenv
 from flask_cors import CORS
+from mongo_client import mongo_client
+
+gallery = mongo_client.gallery
+images_collection = gallery.images
 
 load_dotenv(dotenv_path="./.env.local")
 
@@ -32,6 +36,25 @@ def new_image():
     data = response.json()
 
     return data
+
+
+@app.route("/images", methods=["GET", "POST"])
+def images():
+    """Image-handling API"""
+    if request.method == "GET":
+        # Read images from the database
+        images = images_collection.find({})
+        return jsonify([img for img in images])
+    elif request.method == "POST":
+        # Save image in the database
+        image = request.get_json()
+        image["_id"] = image.get("id")
+        result = images_collection.insert_one(image)
+        inserted_id = result.inserted_id
+        return {"inserted_id": inserted_id}
+    else:
+        # Invalid operation
+        raise EnvironmentError("Invalid operation")
 
 
 if __name__ == "__main__":
