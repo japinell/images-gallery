@@ -1,6 +1,7 @@
 {
   "editor.tabSize": 2,
   "eslint.validate": ["html", "javascript", "javascriptreach"],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
